@@ -5,7 +5,7 @@ option_from_files=0
 option_quiet_mode=0
 
 ## helpers
-log() { ./common/log "$1" "$2"; }
+log() { ./common/log "$@"; }
 
 log_error() { log error "$1"; }
 log_info()  { log info  "$1"; }
