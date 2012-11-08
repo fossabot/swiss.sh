@@ -96,9 +96,9 @@ fi
 ### log message
 case $1 in
   error | fatal)
-    log $log_color $1 "$2" >&2 ;;
+    log $log_color "$1" "$2" >&2 ;;
   *)
-    log $log_color $1 "$2" ;;
+    log $log_color "$1" "$2" ;;
 esac
 
 exit 0
