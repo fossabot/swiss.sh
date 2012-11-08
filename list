@@ -1,0 +1,126 @@
+#! /bin/sh
+
+## settings
+dataset_location="/var/opt/*"
+
+
+## helpers
+log_with_color() { echo -e "$(tput setaf $1)$2$(tput sgr0)"; }
+
+log_status() { echo -e "$(log_with_color "$1" "$2"):\t$3"; }
+
+log_error() { log_status 1 "error" "$1"; }
+log_info()  { log_status 2 "info" "$1";  }
+log_warn()  { log_status 3 "warn" "$1";  }
+
+
+## display usage
+usage() {
+  log_info "usage: list [-hq] [-a] arguments"
+  log_info "this script list usefull information about a system"
+  log_info "arguments:"
+  log_info "  -a"
+  log_info "    list all information"
+}
+
+
+## functions
+### list available datasets
+list_datasets() {
+  echo ""
+  log_info "datasets"
+  echo ""
+  df $dataset_location -t nfs
+}
+
+### list network interfaces
+list_network_interfaces(){
+  echo ""
+  log_info "network_interfaces"
+  echo ""
+  lshw -C network -short
+  lshw -C bus -short
+}
+
+### list processor information
+list_processors() {
+  echo ""
+  log_info "processors"
+  echo ""
+  lshw -C processor -short
+}
+
+### list software information
+list_software() {
+  echo ""
+  log_info "software"
+  echo ""
+}
+
+### list storge devices
+list_storage_devices() {
+  echo ""
+  log_info "storage_devices"
+  echo ""
+  parted -l
+}
+
+### list system memory
+list_system_memory() {
+  echo ""
+  log_info "system_memory"
+  echo ""
+  lshw -C memory -short
+}
+
+### list everything
+list_all() {
+  list_datasets
+  list_network_interfaces
+  list_processors
+  list_software
+  list_storage_devices
+  list_system_memory
+}
+
+
+## main
+# check for sudo
+if [[ $UID != 0 ]]; then
+  log_error "please run this command as root"
+  log_info  "sudo $0 $*"
+  exit 1
+fi
+
+# determine what to list based on provided arguments
+while test $# -gt 0
+do
+  case $1 in
+
+    # normal option processing
+    -a | --all)     list_all ;;
+    -h | --help)    usage    ;;
+    -v | --version) usage    ;;
+
+    # special cases
+    --)  break ;;
+    --*)       ;; # error unknown (long) option $1
+    -?)        ;; # error unknown (short) option $1
+
+    # split apart combined short options
+    -*)
+      split=$1
+      shift
+      set -- $(echo "$split" | cut -c 2- | sed 's/./-& /g') "$@"
+      continue
+      ;;
+
+    # done with options
+    *) break ;;
+  esac
+
+  shift
+done
+
+exit 0
+

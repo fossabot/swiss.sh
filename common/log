@@ -1,0 +1,70 @@
+#! /bin/sh
+
+log_with_color() { echo -e "$(tput setaf $1)$2$(tput sgr0)"; }
+
+log_status() { echo -e "$(log_with_color "$1" "$2"):\t$3"; }
+
+log_error() { log_status 1 "error" "$1" 1>&2; }
+log_info()  { log_status 2 "info"  "$1"; }
+log_warn()  { log_status 3 "warn"  "$1"; }
+
+
+## display usage
+usage() {
+  log_info "usage: log [-chqv] log_level message"
+  log_info ""
+  log_info "this script logs a message with a peceded log level"
+  log_info ""
+  log_info "arguments:"
+  log_info "  log_level"
+  log_info "    the log level to use (info, warn, error)"
+  log_info "  message"
+  log_info "    the message to log"
+  log_info ""
+  log_info "options:"
+  log_info "  -h, --help"
+  log_info "    display the usage information"
+  log_info "  -v, --version"
+  log_info "    display the version information"
+
+  exit 0
+}
+
+## main
+# determine what to list based on provided arguments
+while test $# -gt 0
+do
+  case $1 in
+    # normal option processing
+    -h | --help)    usage ;;
+    -v | --version) usage ;;
+
+    # special cases
+    --)  break ;;
+    --*)       ;; # error unknown (long) option $1
+    -?)        ;; # error unknown (short) option $1
+
+    # split apart combined short options
+    -*)
+      split=$1
+      shift
+      set -- $(echo "$split" | cut -c 2- | sed 's/./-& /g') "$@"
+      continue
+      ;;
+
+    # done with options
+    *) break ;;
+  esac
+
+  shift
+done
+
+### perform log based on first argument
+case $1 in
+  info)  log_info  $2 ;;
+  warn)  log_warn  $2 ;;
+  error) log_error $2 ;;
+esac
+
+exit 0
+
