@@ -1,7 +1,7 @@
 #! /bin/sh
 
 ## helpers
-log() { ./common/log "$@"; }
+log() { `dirname "$0"`/common/log "$@"; }
 
 log_error() { log error "$1"; }
 log_info()  { log info  "$1"; }
