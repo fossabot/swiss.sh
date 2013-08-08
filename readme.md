@@ -1,5 +1,5 @@
 #[swiss.sh][1] ![build status.][2]
-*a pocket sized library toolkit for any situation.*
+*a pocket sized library toolkit for any situation*
 
 ## tools
 * iterate
@@ -8,9 +8,33 @@
 * propagate
 
 ## usage
+first, clone swiss to your local directory:
+```sh
+git clone git@github.com:mraxilus/swiss.sh.git swiss
+```
+
+next, create a script called `hello_swiss.sh`:
+```sh
+#!/bin/bash
+#
+# hello_swiss.sh
+
+source swiss/src/swiss.sh
+
+swiss::log_info "hello swiss!"
+```
+
+finally, make your script executable, and run it:
+```sh
+> chmod +x hello_swiss.sh
+> ./hello_swiss.sh
+info: hello swiss!
+```
+congratulations, you've now successfully imported, and utilized the swiss.sh
+library. now go forth. be awesome.
 
 ## purpose
-I'm tired of hacking together libraries from all over the place. Not only can
+i'm tired of hacking together libraries from all over the place. not only can
 I benifit from the knowledge gained from the creation of these libraries, but
 having a bunch of useful utilities in one neatly integrated self-contained
 library is a major plus.
