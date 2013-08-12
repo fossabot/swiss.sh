@@ -1,1 +1,1 @@
-script: find ./*_test.sh | xargs bash
+script: find ./*_test.sh | xargs -I file bash file

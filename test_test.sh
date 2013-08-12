@@ -21,7 +21,7 @@ main() {
     "pass on valid status" \
       "pass" "valid" "0" "valid"   "0" "cat"          "valid" \
     "fail on invalid status" \
-      "fail" "valid" "1" "valid"   "0" "cat"          "valid" "" \
+      "fail" "valid" "1" "valid"   "0" "cat"          "valid" \
   )
 
   if [[ $((${#tests[@]} % 8)) != 0 ]]; then
