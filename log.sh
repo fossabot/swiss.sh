@@ -18,7 +18,7 @@ swiss::log() {
   echo -e "${message_type} at ${utc_time}: ${3}"
 }
 
-swiss::log_debug() {
+swiss::log::debug() {
   # log a debug message to terminal.
   # globals:
   #   none
@@ -29,7 +29,7 @@ swiss::log_debug() {
   swiss::log 5 debug "${1}" >&2
 }
 
-swiss::log_error() {
+swiss::log::error() {
   # log an error message to terminal.
   # globals:
   #   none
@@ -40,7 +40,7 @@ swiss::log_error() {
   swiss::log 1 error "${1}" >&2
 }
 
-swiss::log_fatal() {
+swiss::log::fatal() {
   # log a fatal message to terminal.
   # globals:
   #   none
@@ -51,7 +51,7 @@ swiss::log_fatal() {
   swiss::log 1 fatal "${1}" >&2
 }
 
-swiss::log_info() {
+swiss::log::info() {
   # log an informational message to terminal.
   # globals:
   #   none
@@ -62,7 +62,7 @@ swiss::log_info() {
   swiss::log 2 "info " "${1}"
 }
 
-swiss::log_trace() {
+swiss::log::trace() {
   # log a trace message to terminal.
   # globals:
   #   none
@@ -78,7 +78,7 @@ swiss::log_trace() {
   swiss::log 4 "trace" "${path}"
 }
 
-swiss::log_warn() {
+swiss::log::warn() {
   # log a warning message to terminal.
   # globals:
   #   none

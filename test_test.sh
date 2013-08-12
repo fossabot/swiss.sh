@@ -7,8 +7,7 @@ source swiss.sh
 
 main() {
   # TODO(mraxilus): document main
-  # TODO(mraxilus): todo write loop to run through tests
-  tests=(\
+  local tests=(\
     # name
     # result expect       actual       command        stdin
     "pass on valid stdout" \
@@ -19,59 +18,57 @@ main() {
       "pass" "valid" "0" "valid"   "0" "cat"          "valid" \
     "fail on invalid stdin" \
       "fail" "valid" "0" "invalid" "0" "cat"          "invalid" \
-    # veriy status
-      #verify_test "valid" "valid"   "cat" 0
-      #verify_test "valid" "valid"   "cat" 1
-      #verify_test "valid" "invalid" "cat" 0
+    "pass on valid status" \
+      "pass" "valid" "0" "valid"   "0" "cat"          "valid" \
+    "fail on invalid status" \
+      "fail" "valid" "1" "valid"   "0" "cat"          "valid" "" \
   )
 
   if [[ $((${#tests[@]} % 8)) != 0 ]]; then
     # TODO(mraxilus): provide useful output
+    swiss::log::error "malformed test cases"
     exit 1
   fi
 
   for i in $(seq 0 $(((${#tests[@]} / 8) - 1))); do
-    local index=$((i * 8))
-    local name=${tests[$index]}
-    local result=${tests[$(($index + 1))]}
-    local expect_output=${tests[$(($index + 2))]}
-    local expect_status=${tests[$(($index + 3))]}
-    local actual_output=${tests[$(($index + 4))]}
-    local actual_status=${tests[$(($index + 5))]}
-    local command=${tests[$(($index + 6))]}
-    local stdin=${tests[$(($index + 7))]}
-    local assert_output=$(mimic_output "${result}" "${name}" "${expect_output}" "${expect_status}" "${actual_output}" "${actual_status}")
-    assert "${name}" "${assert_output}" "${name}" "${expect_output}" "${stdin}" "${command}"
+    local j=$((i * 8))
+    local assert_output=$(mimic_output "${tests[@]:$j:$(($j + 7))}")
+    assert "${assert_output}" "${tests[@]:$j:$(($j + 7))}"
   done
 }
 
 mimic_output() {
   # TODO(mraxilus): document mimic_output
-  # TODO(mraxilus): clean up layout of expect
   local expect=""
-  if [[ "${1}" == "pass" ]]; then
-    expect+="$(swiss::colorize 2 pass):\n  name: \"${2}\""
-  elif [[ "${1}" == "fail" ]]; then
-    expect+="$(swiss::colorize 1 fail):\n  name: \"${2}\"\n  expect:\n    "
-    expect+="output: \"${3}\"\n    status: ${4}\n  actual:\n    output: "
-    expect+="\"${5}\"\n    status: ${6}"
+  if [[ "${2}" == "pass" ]]; then
+    expect+="$(swiss::colorize 2 pass):"
+    expect+="\n  name: \"${1}\""
+  elif [[ "${2}" == "fail" ]]; then
+    expect+="$(swiss::colorize 1 fail):"
+    expect+="\n  name: \"${1}\""
+    expect+="\n  expect:"
+    expect+="\n    stdout: \"${3}\""
+    expect+="\n    status: ${4}"
+    # TODO(mraxilus): mimic stderr
+    expect+="\n    stderr: \"\""
+    expect+="\n  actual:"
+    expect+="\n    stdout: \"${5}\""
+    expect+="\n    status: ${6}"
+    expect+="\n    stderr: \"\""
   fi
-  echo -e "$expect"
+  echo -e "${expect}"
 }
 
 assert() {
-  # TODO(mraxilus): document verify_test
-  local name="${1}"
-  shift
+  # TODO(mraxilus): document assert
   local expect="${1}"
-  shift
-  local actual=$(swiss::test::assert_equal "${@}")
+  local actual=$(echo "${9}" | swiss::test::assert "${2}" "${8}" "${4}" "${5}")
   if [[ "${expect}" == "${actual}" ]]; then
     echo "$(swiss::colorize 2 pass):"
-    echo "  name: \"${name}\""
+    echo "  name: \"${2}\""
   else
     echo "$(swiss::colorize 1 fail):"
-    echo "  name: \"${name}\""
+    echo "  name: \"${2}\""
     exit 1
   fi
 }

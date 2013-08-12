@@ -12,7 +12,7 @@ swiss::test::assert() {
   fi
 
   local stderr_file=$(mktemp)
-  local stdout  # hack to get around local elminating exit status
+  local stdout  # hack to get around local discarding exit status
   stdout=$(echo "${stdin}" | eval "${2}" 2> ${stderr_file})
   local exit_status=$?
   local stderr=$(cat ${stderr_file})
@@ -22,8 +22,8 @@ swiss::test::assert() {
     && [[ "${5:-${stderr}}" == "${stderr}" ]]; then
     result="pass"
   fi
-  swiss::test::_print_result "${result}" "${1}" "${3}" "${4}" "${5}" \
-    "${stdout}" "${exit_status}" "${stderr}"
+  swiss::test::_print_result "${result}" "${1}" "${3}" "${4:-0}" \
+    "${5:-${stderr}}" "${stdout}" "${exit_status}" "${stderr}"
 
   # cleanup
   rm ${stderr_file}
