@@ -2,10 +2,10 @@
 *a pocket sized library toolkit for any situation*
 
 ## tools
-* iterate
-* list
-* log
-* propagate
+* clone - copy a single file to multiple destinations.
+* log - display formatted info, warn, error, fatal, and trace messages.
+* map - run a function over a list of arguments.
+* test - simple functions for creating unit tests.
 
 ## usage
 first, clone swiss to your local directory:
@@ -16,19 +16,17 @@ git clone git@github.com:mraxilus/swiss.sh.git swiss
 next, create a script called `hello_swiss.sh`:
 ```sh
 #!/bin/bash
-#
-# hello_swiss.sh
 
-source swiss/src/swiss.sh
+source swiss/swiss.sh
 
-swiss::log_info "hello swiss!"
+swiss::log::info "hello swiss!"
 ```
 
 finally, make your script executable, and run it:
 ```sh
 > chmod +x hello_swiss.sh
 > ./hello_swiss.sh
-info: hello swiss!
+info at 00:00:00: hello swiss!
 ```
 congratulations, you've now successfully imported, and utilized the swiss.sh
 library. now go forth. be awesome.
@@ -40,9 +38,11 @@ having a bunch of useful utilities in one neatly integrated self-contained
 library is a major plus.
 
 ## documentation
+for more information please consult the [wiki][3]. you will also find elaborated
+descriptions of each tool.
 
 ## license
-copyright © mr axilus [![flattr this][3]][4]
+copyright © mr axilus [![flattr this][4]][5]
 
 permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "software"), to deal in
@@ -63,5 +63,6 @@ connection with the software or the use or other dealings in the software.
 
 [1]: mraxil.us "swiss.sh"
 [2]: https://secure.travis-ci.org/mraxilus/swiss.sh.png?branch=master
-[3]: http://api.flattr.com/button/flattr-badge-large.png
-[4]: https://flattr.com/profile/mraxilus
+[3]: https://github.com/mraxilus/swiss.sh/wiki
+[4]: http://api.flattr.com/button/flattr-badge-large.png
+[5]: https://flattr.com/profile/mraxilus
