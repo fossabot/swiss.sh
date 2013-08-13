@@ -42,7 +42,7 @@ for more information please consult the [wiki][3]. you will also find elaborated
 descriptions of each tool.
 
 ## license
-copyright © mr axilus [![flattr this][4]][5]
+copyright © mr axilus <a class="coinbase-button" data-code="c060c048abd9fe7b4f36021738451bed" data-button-style="donation_small" href="https://coinbase.com/checkouts/c060c048abd9fe7b4f36021738451bed">donate bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
 
 permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "software"), to deal in
