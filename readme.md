@@ -2,10 +2,10 @@
 *a pocket sized library toolkit for any situation*
 
 ## tools
-* clone - copy a single file to multiple destinations.
-* log - display formatted info, warn, error, fatal, and trace messages.
-* map - run a function over a list of arguments.
-* test - simple functions for creating unit tests.
+* **clone** - copy a single file to multiple destinations.
+* **log** - display formatted info, warn, error, fatal, and trace messages.
+* **map** - run a function over a list of arguments.
+* **test** - simple functions for creating unit tests.
 
 ## usage
 first, clone swiss to your local directory:
