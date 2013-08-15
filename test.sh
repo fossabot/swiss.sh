@@ -19,11 +19,11 @@ swiss::test::assert() {
   local result="fail"
   if [[ "${3}" == "${stdout}" ]] \
     && [[ "${4:-0}" == "${exit_status}" ]] \
-    && [[ "${5:-${stderr}}" == "${stderr}" ]]; then
+    && [[ "${5-${stderr}}" == "${stderr}" ]]; then
     result="pass"
   fi
   swiss::test::_print_result "${result}" "${1}" "${3}" "${4:-0}" \
-    "${5:-${stderr}}" "${stdout}" "${exit_status}" "${stderr}"
+    "${5-${stderr}}" "${stdout}" "${exit_status}" "${stderr}"
 
   # cleanup
   rm ${stderr_file}
