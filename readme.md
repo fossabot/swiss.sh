@@ -1,4 +1,4 @@
-#[swiss.sh][1] ![build status][2]
+#[swiss.sh][1] [![build status][2]][3]
 *a pocket sized library toolkit for any situation*
 
 ## tools
@@ -38,7 +38,7 @@ having a bunch of useful utilities in one neatly integrated self-contained
 library is a major plus.
 
 ## documentation
-for more information please consult the [wiki][3]. you will also find elaborated
+for more information please consult the [wiki][4]. you will also find elaborated
 descriptions of each tool.
 
 ## license
@@ -63,6 +63,5 @@ connection with the software or the use or other dealings in the software.
 
 [1]: mraxil.us "swiss.sh"
 [2]: https://secure.travis-ci.org/mraxilus/swiss.sh.png?branch=master
-[3]: https://github.com/mraxilus/swiss.sh/wiki
-[4]: http://api.flattr.com/button/flattr-badge-large.png
-[5]: https://flattr.com/profile/mraxilus
+[3]: https://travis-ci.org/mraxilus/swiss.sh
+[4]: https://github.com/mraxilus/swiss.sh/wiki
