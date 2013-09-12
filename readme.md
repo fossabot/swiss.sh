@@ -1,4 +1,4 @@
-#[swiss.sh][1] [![build status](https://drone.io/github.com/mraxilus/swiss.sh/status.png)](https://drone.io/github.com/mraxilus/swiss.sh/latest)
+#[swiss.sh][1] ![build status][2]
 *a pocket sized library toolkit for any situation*
 
 ## tools
@@ -62,6 +62,7 @@ in an action of contract, tort or otherwise, arising from, out of or in
 connection with the software or the use or other dealings in the software.
 
 [1]: mraxil.us "swiss.sh"
+[2]: https://secure.travis-ci.org/mraxilus/swiss.sh.png?branch=master
 [3]: https://github.com/mraxilus/swiss.sh/wiki
 [4]: http://api.flattr.com/button/flattr-badge-large.png
 [5]: https://flattr.com/profile/mraxilus
