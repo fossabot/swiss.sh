@@ -8,7 +8,7 @@ swiss::map() {
   local command
   for element in "${@:2}"; do
     command="${1}"
-    args=("${(s/ /)element}")
+    args=(${element})
     i=0
     for arg in "${args[@]}"; do
       command=$(echo "${command}" \
