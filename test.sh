@@ -95,10 +95,13 @@ swiss::test::_print_result() {
   #   none
   if [[ "${1}" == "pass" ]]; then
     echo "$(swiss::colorize 2 pass):"
-    echo "  name: \"${2}\""
   elif [[ "${1}" == "fail" ]]; then
     echo "$(swiss::colorize 1 fail):"
-    echo "  name: \"${2}\""
+  fi
+  echo "  name: \"${2}\""
+
+  # determine whether to print verbose information
+  if [[ -v SWISS_TEST_VERBOSE || "${1}" == "fail" ]]; then
     echo "  expect:"
     echo "    stdout: \"${3}\""
     echo "    status: ${4}"
@@ -107,8 +110,5 @@ swiss::test::_print_result() {
     echo "    stdout: \"${6}\""
     echo "    status: ${7}"
     echo "    stderr: \"${8}\""
-  else
-    # TODO(mraxilus): report error
-    echo "unimplimented"
   fi
 }
