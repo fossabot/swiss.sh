@@ -21,7 +21,7 @@ swiss::map() {
   for element in "${@:2}"; do
     command="${1}"
     args=(${element})
-    i=0
+    local i=0
     for arg in "${args[@]}"; do
       command=$(echo "${command}" \
         | sed "s/\(.*\){${i}}\(.*\)/\1${arg}\2/")

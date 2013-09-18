@@ -22,7 +22,11 @@ main() {
     "map \"echo '{0}'\" \"exp1\" \"exp2\"" "$(echo -e "exp1\nexp2")"
   assert "map valid on 2 sets, 2 arg" \
     "map \"echo '{0} {1}'\" \"exp1 exp2\" \"exp3 exp4\"" \
-    "$(echo -e "exp1 exp2\nexp3 exp4")" "0" ""
+    "$(echo -e "exp1 exp2\nexp3 exp4")"
+  assert "map valid on unordered placeholders" \
+    "map \"echo '{1} {0}'\" \"exp2 exp1\"" "exp1 exp2"
+  assert "map valid on specified command" \
+    "map \"{0} {1}\" \"echo expect\"" "expect"
 }
 
 assert() {
