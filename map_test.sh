@@ -1,27 +1,49 @@
 #!/bin/bash
 #
 # map_test.sh
+# TODO(mraxilus): document header
 
 source swiss.sh
 
 main() {
-  # assert "name" "map arg" "out" "0" ""
-  assert "valid output on 1 set, 1 arg" "map \"echo '{0}'\" \"expect\"" \
-    "expect" "0" ""
-  assert "valid output on 1 set, 2 args" \
-    "map \"echo '{0} {1}'\" \"exp1 exp2\"" "exp1 exp2" "0" ""
-  assert "valid output on 2 sets, 1 arg" \
-    "map \"echo '{0}'\" \"exp1\" \"exp2\"" "$(echo -e "exp1\nexp2")" "0" ""
-  assert "valid output on 2 sets, 2 arg" \
+  # a simple test suite which verifies that swiss' map library functions
+  # correctly.
+  # globals:
+  #   none
+  # arguments:
+  #   none
+  # returns:
+  #   none
+  assert "map valid on 1 set, 1 arg" \
+    "map \"echo '{0}'\" \"expect\"" "expect"
+  assert "map valid on 1 set, 2 args" \
+    "map \"echo '{0} {1}'\" \"exp1 exp2\"" "exp1 exp2"
+  assert "map valid on 2 sets, 1 arg" \
+    "map \"echo '{0}'\" \"exp1\" \"exp2\"" "$(echo -e "exp1\nexp2")"
+  assert "map valid on 2 sets, 2 arg" \
     "map \"echo '{0} {1}'\" \"exp1 exp2\" \"exp3 exp4\"" \
     "$(echo -e "exp1 exp2\nexp3 exp4")" "0" ""
 }
 
 assert() {
+  # an alias for swiss::test::assert.
+  # globals:
+  #   none
+  # arguments:
+  #   $@  same as swiss::test::assert, verbatim
+  # returns:
+  #   none
   swiss::test::assert "${@}"
 }
 
 map() {
+  # an alias for swiss::map.
+  # globals:
+  #   none
+  # arguments:
+  #   $@  same as swiss::map, verbatim
+  # returns:
+  #   none
   swiss::map "${@}"
 }
 
