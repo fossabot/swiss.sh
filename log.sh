@@ -1,6 +1,6 @@
 #!/bin/bash
-#
-# log.sh
+# this file is part of swiss.sh which is released under the mit license.
+# go to http://opensource.org/licenses/mit for full details.
 
 swiss::log() {
   # log a colored message to the terminal complete with date and time

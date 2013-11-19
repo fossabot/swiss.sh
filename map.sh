@@ -1,7 +1,6 @@
 #!/bin/bash
-#
-# map.sh
-# TODO(mraxilus): document header
+# this file is part of swiss.sh which is released under the mit license.
+# go to http://opensource.org/licenses/mit for full details.
 
 swiss::map() {
   # TODO(mraxilus): document swiss::map

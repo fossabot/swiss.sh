@@ -1,8 +1,9 @@
 #!/bin/bash
-#
-# swiss.sh
+# this file is part of swiss.sh which is released under the mit license.
+# go to http://opensource.org/licenses/mit for full details.
 
 SWISS_ROOT=$(readlink -f ${BASH_SOURCE[0]} | xargs dirname)
+# create array of all submodules excluding tests and this file itself
 SWISS_PATHS=($(find ${SWISS_ROOT}/*.sh | sed '/\(swiss\|_test\)\.sh$/d'))
 SWISS_SOURCEE=$(readlink -f ${BASH_SOURCE[1]}) 
 
