@@ -1,18 +1,19 @@
 #!/bin/bash
-#
-# test.sh
-# TODO(mraxilus): document header
+# this file is part of swiss.sh which is released under the mit license.
+# go to http://opensource.org/licenses/mit for full details.
 
 swiss::test::assert() {
-  # TODO(mraxilus): document assert
+  # verify that a command functions correctly via means of comparing stdout,
+  # stderr, and exit status.
+  # input can be provided to the command via stdin.
   # globals:
   #   none
   # arguments:
-  #   $1  name
-  #   $1  command
-  #   $1  stdout
-  #   $1  status
-  #   $1  stderr
+  #   $1: name    name to use when displaying test results
+  #   $2: command command to execute
+  #   $3: stdout  expected string to be produced to stdout
+  #   $4: status  expected exit status of the command (default = 0)
+  #   $5: stderr  expected string to be produced to stderr (default = "")
   # returns:
   #   none
 
@@ -22,11 +23,11 @@ swiss::test::assert() {
   fi
 
   local stderr_file=$(mktemp)
-  local stdout  # hack to get around local discarding exit status
+  local stdout  # circumvent local discarding exit status
   stdout=$(echo "${stdin}" | eval "${2}" 2> ${stderr_file})
   local exit_status=$?
   local stderr=$(cat ${stderr_file})
-  local result="fail"
+  local result="fail"  # assume failure by default
   if [[ "${3}" == "${stdout}" ]] \
     && [[ "${4:-0}" == "${exit_status}" ]] \
     && [[ "${5-${stderr}}" == "${stderr}" ]]; then

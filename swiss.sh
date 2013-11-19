@@ -32,8 +32,8 @@ swiss::colorize() {
 swiss::main() {
   # source all the swiss libraries in the SWISS_ROOT directory
   # globals:
-  #   SWISS_PATHS
-  #   SWISS_SOURCEE
+  #   $SWISS_PATHS
+  #   $SWISS_SOURCEE
   # arguments:
   #   none
   # returns:
