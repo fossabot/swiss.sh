@@ -16,6 +16,8 @@ swiss::test::assert() {
   #   $5: stderr  expected string to be produced to stderr (default = "")
   # returns:
   #   none
+  # TODO(mraxilus): make sure to return non-zero exit status if any failures
+  #                 might want to set TEST_FAILURE and use trap to detect
 
   # detect if input has been provided
   if read -t 0; then
@@ -37,6 +39,7 @@ swiss::test::assert() {
     "${5-${stderr}}" "${stdout}" "${exit_status}" "${stderr}"
 
   # cleanup
+  # TODO(mraxilus): use a trap
   rm ${stderr_file}
 }
 
