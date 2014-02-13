@@ -8,14 +8,14 @@ colorize() { swiss::colorize     "${@}"; }
 
 main() {
   # swiss::log()
-  assert "swiss::log() correctly logs single word message" \
+  assert "log() correctly logs single word message" \
     "swiss::log 2 type message time" \
     "$(colorize 2 "type") at $(colorize 4 "time"): message"
-  assert "swiss::log() correctly logs multi-word message" \
+  assert "log() correctly logs multi-word message" \
     "swiss::log 2 type \"multi-word message\" time" \
     "$(colorize 2 "type") at $(colorize 4 "time"): multi-word message"
 
-  # swiss::log specializations
+  # log specializations
   test_log_specialization_stderr "debug" "5"
   test_log_specialization_stderr "error" "1"
   test_log_specialization_stderr "fatal" "1"
@@ -34,12 +34,12 @@ test_log_specialization_stderr() {
   #   $2: color code
   # returns:
   #   none
-  assert "swiss::log::${1}() correctly logs single word message" \
+  assert "log::${1}() correctly logs single word message" \
     "swiss::log::${1} message time" \
     "" \
     "0" \
     "$(colorize "${2}" "${1}") at $(colorize "4" "time"): message"
-  assert "swiss::log::${1}() correctly logs multi-word message" \
+  assert "log::${1}() correctly logs multi-word message" \
     "swiss::log::${1} \"multi-word message\" time" \
     "" \
     "0" \
@@ -54,10 +54,10 @@ test_log_specialization_stdout() {
   #   $2: color code
   # returns:
   #   none
-  assert "swiss::log::${1}() correctly logs single word message" \
+  assert "log::${1}() correctly logs single word message" \
     "swiss::log::${1} message time" \
     "$(colorize "${2}" "${1}") at $(colorize "4" "time"): message"
-  assert "swiss::log::${1}() correctly logs multi-word message" \
+  assert "log::${1}() correctly logs multi-word message" \
     "swiss::log::${1} \"multi-word message\" time" \
     "$(colorize "${2}" "${1}") at $(colorize "4" "time"): multi-word message"
 }

@@ -10,17 +10,17 @@ main() {
   local tests=(\
     # name
     # result expect       actual       command        stdin
-    "pass on valid stdout" \
+    "test::assert() passes on valid stdout" \
       "pass" "valid" "0" "valid"   "0" "echo valid"   "" \
-    "fail on invalid stdout" \
+    "test::assert() fails on invalid stdout" \
       "fail" "valid" "0" "invalid" "0" "echo invalid" "" \
-    "pass on valid stdin" \
+    "test::assert() passes on valid stdin" \
       "pass" "valid" "0" "valid"   "0" "cat"          "valid" \
-    "fail on invalid stdin" \
+    "test::assert() fails on invalid stdin" \
       "fail" "valid" "0" "invalid" "0" "cat"          "invalid" \
-    "pass on valid status" \
+    "test::assert() passes on valid status" \
       "pass" "valid" "0" "valid"   "0" "cat"          "valid" \
-    "fail on invalid status" \
+    "test::assert() fails on invalid status" \
       "fail" "valid" "1" "valid"   "0" "cat"          "valid" \
   )
 

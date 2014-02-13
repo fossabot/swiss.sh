@@ -20,6 +20,7 @@ swiss::test::assert() {
   #                 might want to set TEST_FAILURE and use trap to detect
 
   # detect if input has been provided
+  local stdin
   if read -t 0; then
     local stdin=$(cat /dev/stdin)
   fi
