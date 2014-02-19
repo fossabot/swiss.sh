@@ -105,6 +105,7 @@ swiss::test::start_suite() {
 
 swiss::test::end_suite() {
   # TODO(mraxilus): log test statuses
+  echo "unimplemented"
 }
 
 swiss::test::_print_result() {
