@@ -7,15 +7,15 @@ assert()   { swiss::test::assert "${@}"; }
 colorize() { swiss::colorize     "${@}"; }
 
 main() {
-  swiss::test::start_suite
+  swiss::test::start_suite "swiss::log"
 
   # swiss::log()
-  assert "log() correctly logs single word message" \
-    "swiss::log 2 type message time" \
+  swiss::test::start_test "log() correctly logs messages"
+  assert "swiss::log 2 type message time" \
     "$(colorize 2 "type") at $(colorize 4 "time"): message"
-  assert "log() correctly logs multi-word message" \
-    "swiss::log 2 type \"multi-word message\" time" \
+  assert "swiss::log 2 type \"multi-word message\" time" \
     "$(colorize 2 "type") at $(colorize 4 "time"): multi-word message"
+  swiss::test::end_test
 
   # log specializations
   test_log_specialization_stderr "debug" "5"
@@ -38,16 +38,16 @@ test_log_specialization_stderr() {
   #   $2: color code
   # returns:
   #   none
-  assert "log::${1}() correctly logs single word message" \
-    "swiss::log::${1} message time" \
+  swiss::test::start_test "log::${1}() correctly logs messages"
+  assert "swiss::log::${1} message time" \
     "" \
     "0" \
     "$(colorize "${2}" "${1}") at $(colorize "4" "time"): message"
-  assert "log::${1}() correctly logs multi-word message" \
-    "swiss::log::${1} \"multi-word message\" time" \
+  assert "swiss::log::${1} \"multi-word message\" time" \
     "" \
     "0" \
     "$(colorize "${2}" "${1}") at $(colorize "4" "time"): multi-word message"
+  swiss::test::end_test
 }
 
 test_log_specialization_stdout() {
@@ -58,12 +58,12 @@ test_log_specialization_stdout() {
   #   $2: color code
   # returns:
   #   none
-  assert "log::${1}() correctly logs single word message" \
-    "swiss::log::${1} message time" \
+  swiss::test::start_test "log::${1}() correctly logs messages"
+  assert "swiss::log::${1} message time" \
     "$(colorize "${2}" "${1}") at $(colorize "4" "time"): message"
-  assert "log::${1}() correctly logs multi-word message" \
-    "swiss::log::${1} \"multi-word message\" time" \
+  assert "swiss::log::${1} \"multi-word message\" time" \
     "$(colorize "${2}" "${1}") at $(colorize "4" "time"): multi-word message"
+  swiss::test::end_test
 }
 
 main
