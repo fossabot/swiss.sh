@@ -20,9 +20,9 @@ swiss::test::assert() {
   #                 might want to set TEST_FAILURE and use trap to detect
 
   # detect if input has been provided
-  local stdin
+  local stdin=""
   if read -t 0; then
-    local stdin=$(cat /dev/stdin)
+    stdin=$(cat /dev/stdin)
   fi
 
   local stderr_file=$(mktemp)
@@ -81,6 +81,30 @@ swiss::test::assert_stdout() {
   # returns:
   #   none
   echo "unimplimented"
+}
+
+swiss::test::setup() {
+  SWISS_TEST_DIRECTORY_TEMPORARY="$(mktemp -d)"
+  cd "${SWISS_TEST_DIRECTORY_TEMPORARY}"
+}
+
+swiss::test::cleanup() {
+  cd "${SWISS_TEST_DIRECTORY_ORIGINAL}"
+  rm -rf "${SWISS_TEST_DIRECTORY_TEMPORARY}"
+}
+
+swiss::test::run() {
+  eval "$@" &> /dev/null || true
+}
+
+swiss::test::start_suite() {
+  SWISS_TEST_PASSED=0
+  SWISS_TEST_FAILED=0
+  SWISS_TEST_TOTAL=0
+}
+
+swiss::test::end_suite() {
+  # TODO(mraxilus): log test statuses
 }
 
 swiss::test::_print_result() {
