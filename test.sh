@@ -9,8 +9,8 @@ swiss::test::assert() {
   # arguments:
   #   $1: command to execute
   #   $2: expected string to be produced to stdout
-  #   $3: expected exit status of the command (default = 0)
-  #   $4: expected string to be produced to stderr (default = actual stderr)
+  #   $3: expected exit status of the command
+  #   $4: expected string to be produced to stderr
   # returns:
   #   none
 
@@ -20,26 +20,30 @@ swiss::test::assert() {
     stdin=$(cat /dev/stdin)
   fi
 
+  # retrieve actual output of command.
   local stderr_file=$(mktemp)
   local stdout  # circumvent local discarding exit status
   stdout=$(echo "${stdin}" | eval "${1}" 2> ${stderr_file})
   local exit_status=$?
   local stderr=$(cat ${stderr_file})
   rm "${stderr_file}"
-  local result="fail"  # assume failure by default
+
+  # assert that actual outputs match expected.
+  local passed
   if [[ "${2}" == "${stdout}" ]] \
     && [[ "${3:-0}" == "${exit_status}" ]] \
     && [[ "${4-${stderr}}" == "${stderr}" ]]; then
-    result="pass"
+    passed=1
   else
+    passed=0
     SWISS_TEST_PASSED=0
   fi
-  swiss::test::_add_assertion "${result}" "${1}" "${2}" "${3:-0}" \
+  swiss::test::_add_assertion "${passed}" "${1}" "${2}" "${3:-0}" \
     "${4-${stderr}}" "${stdout}" "${exit_status}" "${stderr}"
 }
 
 swiss::test::end_suite() {
-  #
+  # finish current suite at print out statistical results.
   # globals:
   #   SWISS_TEST_FAILURES
   #   SWISS_TEST_PASSES
