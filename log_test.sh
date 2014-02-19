@@ -7,13 +7,15 @@ assert()   { swiss::test::assert "${@}"; }
 colorize() { swiss::colorize     "${@}"; }
 
 main() {
+  swiss::test::start_suite
+
   # swiss::log()
   assert "log() correctly logs single word message" \
     "swiss::log 2 type message time" \
     "$(colorize 2 "type") at $(colorize 4 "time"): message"
   assert "log() correctly logs multi-word message" \
     "swiss::log 2 type \"multi-word message\" time" \
-    "$(colorize 2 "type") at $(colorize 4 "time"): multi-word message"
+    "$(colorize 2 "type") at $(colorize 4 "time"): multi-word messag"
 
   # log specializations
   test_log_specialization_stderr "debug" "5"
@@ -24,6 +26,8 @@ main() {
 
   # swiss::trace()
   # TODO(mraxilus): test trace
+
+  swiss::test::end_suite
 }
 
 test_log_specialization_stderr() {

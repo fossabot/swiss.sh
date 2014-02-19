@@ -62,7 +62,7 @@ mimic_output() {
 assert() {
   # TODO(mraxilus): document assert
   local expect="${1}"
-  local actual=$(echo "${9}" | swiss::test::assert "${2}" "${8}" "${4}" "${5}")
+  local actual=$(echo "${9:-}" | swiss::test::assert "${2}" "${8}" "${4}" "${5}")
   if [[ "${expect}" == "${actual}" ]]; then
     echo "$(swiss::colorize 2 pass):"
     echo "  name: \"${2}\""
