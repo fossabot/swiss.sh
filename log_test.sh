@@ -15,7 +15,7 @@ main() {
     "$(colorize 2 "type") at $(colorize 4 "time"): message"
   assert "log() correctly logs multi-word message" \
     "swiss::log 2 type \"multi-word message\" time" \
-    "$(colorize 2 "type") at $(colorize 4 "time"): multi-word messag"
+    "$(colorize 2 "type") at $(colorize 4 "time"): multi-word message"
 
   # log specializations
   test_log_specialization_stderr "debug" "5"
