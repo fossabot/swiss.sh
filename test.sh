@@ -23,7 +23,7 @@ swiss::test::assert() {
   # retrieve actual output of command.
   local stderr_file=$(mktemp)
   local stdout  # circumvent local command discarding exit status.
-  stdout=$(echo "${stdin}" | eval "${1}" 2> ${stderr_file})
+  stdout=$(echo "${stdin}" | eval "${1}" 2> ${stderr_file}) || true  # avoid errexit option.
   local exit_status=$?
   local stderr=$(cat ${stderr_file})
   rm "${stderr_file}"
