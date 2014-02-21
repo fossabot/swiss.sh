@@ -146,6 +146,17 @@ swiss::test::start_test() {
   SWISS_TEST_PASSED=1  # assume pass until assertion failure.
 }
 
+swiss::test::_test() {
+  # this function exists solely to test the importation of module functions.
+  # globals:
+  #   none.
+  # arguments:
+  #   none.
+  # returns:
+  #   none.
+  echo "swiss::test::test() was imported successfully."
+}
+
 swiss::test::_add_assertion() {
   # create output from result of assertion and add it to buffer for later use.
   # globals:
