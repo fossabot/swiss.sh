@@ -1,4 +1,6 @@
 #!/bin/bash
+# this file is part of swiss.sh which is released under the mit license.
+# go to http://opensource.org/licenses/mit for full details.
 
 LOG_TEST_PATH=$(readlink -f ${BASH_SOURCE[0]} | xargs dirname)
 source "${LOG_TEST_PATH}/swiss.sh"
