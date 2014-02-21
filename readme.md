@@ -37,8 +37,8 @@ congratulations, you've now successfully imported, and utilized the swiss.sh lib
 now go forth, and be awesome.
 
 ## purpose
-hacking together libraries from all over the place can be tiring.
-the knowledge gained from the creation of a library is beneficial.
+hacking together libraries from all over the place can be tiring,
+  and the knowledge gained from the creation of a library is beneficial.
 thus, the development of useful utilities packaged in one self-contained library.
 
 ## documentation
