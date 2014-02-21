@@ -146,15 +146,18 @@ swiss::test::start_test() {
   SWISS_TEST_PASSED=1  # assume pass until assertion failure.
 }
 
-swiss::test::_test() {
-  # this function exists solely to test the importation of module functions.
+swiss::test::test() {
+  # provides syntactic sugar for running functions as tests.
+  # the test name will be the same as the function name.
   # globals:
   #   none.
   # arguments:
-  #   none.
+  #   $1: name of test function.
   # returns:
   #   none.
-  echo "swiss::test::test() was imported successfully."
+  swiss::test::start_test "${1}"
+  $1
+  swiss::test::end_test
 }
 
 swiss::test::_add_assertion() {
@@ -191,4 +194,15 @@ swiss::test::_add_assertion() {
     SWISS_TEST_ASSERTIONS+="\n            status: ${7}"
     SWISS_TEST_ASSERTIONS+="\n            stderr: \"${8}\""
   fi
+}
+
+swiss::test::_test() {
+  # this function exists solely to test the importation of module functions.
+  # globals:
+  #   none.
+  # arguments:
+  #   none.
+  # returns:
+  #   none.
+  echo "swiss::test::test() was imported successfully."
 }
