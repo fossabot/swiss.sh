@@ -91,5 +91,5 @@ in no event shall the authors or copyright holders be liable for any claim,
 [4]: https://github.com/mraxilus/swiss.sh/wiki
 
 <!-- gitter -->
-[5]: https://webhooks.gitter.im/e/282fecc9111026c1abcf
-[6]: http://badges.gitter.im/mraxilus.png
+[5]: http://badges.gitter.im/mraxilus.png
+[6]: https://webhooks.gitter.im/e/282fecc9111026c1abcf
