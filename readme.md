@@ -92,4 +92,4 @@ in no event shall the authors or copyright holders be liable for any claim,
 
 <!-- gitter -->
 [5]: http://badges.gitter.im/mraxilus.png
-[6]: https://webhooks.gitter.im/e/282fecc9111026c1abcf
+[6]: https://gitter.im/mraxilus/swiss.sh
