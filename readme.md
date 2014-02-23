@@ -1,4 +1,4 @@
-[swiss.sh][1] [![build status][2]][3]
+[swiss.sh][1] [![build status][2]][3] [![gitter][5]][6]
 =============
 _a pocket sized library toolkit for any situation._
 
@@ -89,3 +89,7 @@ in no event shall the authors or copyright holders be liable for any claim,
 [2]: https://secure.travis-ci.org/mraxilus/swiss.sh.png?branch=master
 [3]: https://travis-ci.org/mraxilus/swiss.sh
 [4]: https://github.com/mraxilus/swiss.sh/wiki
+
+<!-- gitter -->
+[5]: https://webhooks.gitter.im/e/282fecc9111026c1abcf
+[6]: http://badges.gitter.im/mraxilus.png
