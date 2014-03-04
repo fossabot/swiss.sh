@@ -1,4 +1,4 @@
-[swiss.sh][1] [![build status][2]][3]
+[swiss.sh][1] [![build status][2]][3] [![gitter][4]][5] [![google analytics][6]][7]
 =============
 _a pocket sized library toolkit for any situation._
 
@@ -43,18 +43,22 @@ congratulations,
 now go forth,
   and be awesome.
 
-## purpose
+purpose
+-------
 hacking together libraries from all over the place can be tiring,
   and the knowledge gained from the creation of a library is beneficial.
 thus,
   the development of useful utilities packaged in one self-contained library.
 
-## documentation
-for more information please consult the [wiki][4]. 
+documentation
+-------------
+for more information please consult the [wiki][8]. 
 you will also find elaborated descriptions of each tool.
 
-## license
-copyright © mr axilus <a class="coinbase-button" data-code="c060c048abd9fe7b4f36021738451bed" data-button-style="donation_small" href="https://coinbase.com/checkouts/c060c048abd9fe7b4f36021738451bed">donate bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+license
+-------
+copyright © mr axilus.
+<a class="coinbase-button" data-code="c060c048abd9fe7b4f36021738451bed" data-button-style="donation_small" href="https://coinbase.com/checkouts/c060c048abd9fe7b4f36021738451bed">sponsor</a> with bitcoins.
 
 permission is hereby granted,
   free of charge,
@@ -85,7 +89,21 @@ in no event shall the authors or copyright holders be liable for any claim,
   arising from,
   out of or in connection with the software or the use or other dealings in the software.
 
+
+<!-- extrenal project page -->
 [1]: mraxil.us "swiss.sh"
+
+<!-- travis -->
 [2]: https://secure.travis-ci.org/mraxilus/swiss.sh.png?branch=master
 [3]: https://travis-ci.org/mraxilus/swiss.sh
-[4]: https://github.com/mraxilus/swiss.sh/wiki
+
+<!-- gitter -->
+[4]: http://badges.gitter.im/mraxilus/swiss.sh.png
+[5]: https://gitter.im/mraxilus/swiss.sh
+
+<!-- google analytics -->
+[6]: https://ga-beacon.appspot.com/UA-35748929-2/swiss.sh/readme.md
+[7]: https://github.com/igrigorik/ga-beacon
+
+<!-- wiki -->
+[8]: https://github.com/mraxilus/swiss.sh/wiki
