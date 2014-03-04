@@ -1,5 +1,4 @@
 [swiss.sh][1] [![build status][2]][3] [![gitter][4]][5] [![google analytics][6]][7]
-=============
 _a pocket sized library toolkit for any situation._
 
 modules
