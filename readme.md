@@ -1,4 +1,5 @@
-[swiss.sh][1] [![build status][2]][3] [![gitter][4]][5] [![google analytics][6]][7]
+[swiss.sh][1] [![build status][2]][3] [![gitter][4]][5] [![waffle][6]][7]
+=============
 _a pocket sized library toolkit for any situation._
 
 modules
@@ -100,9 +101,9 @@ in no event shall the authors or copyright holders be liable for any claim,
 [4]: http://badges.gitter.im/mraxilus/swiss.sh.png
 [5]: https://gitter.im/mraxilus/swiss.sh
 
-<!-- google analytics -->
-[6]: https://ga-beacon.appspot.com/UA-35748929-2/swiss.sh/readme.md
-[7]: https://github.com/igrigorik/ga-beacon
+<!-- waffle. -->
+[6]: https://badge.waffle.io/mraxilus/swiss.sh.png?label=ready&title=ready
+[7]: https://badge.waffle.io/mraxilus/swiss.sh
 
 <!-- wiki -->
 [8]: https://github.com/mraxilus/swiss.sh/wiki
