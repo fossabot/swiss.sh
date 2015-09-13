@@ -1,4 +1,4 @@
-[swiss.sh][linkedin] [![build status][travis_image]][travis_status]
+[swiss.sh][linkedin] ![GitHub version][version_badge] [![Build status][travis_image]][travis_status]
 =============
 _Creating a pocket sized toolkit library for any situation._
 
@@ -56,3 +56,4 @@ This project is licensed under [CC BY-NC-SA 4.0][license].
 [travis_image]: https://secure.travis-ci.org/mraxilus/swiss.sh.png?branch=master
 [travis_status]: https://travis-ci.org/mraxilus/swiss.sh
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[version_badge]: https://badge.fury.io/gh/mraxilus%2Fswiss.sh.svg 
