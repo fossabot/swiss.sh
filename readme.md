@@ -1,6 +1,7 @@
 [swiss.sh][linkedin]
 ====================
 ![GitHub version][version_badge] [![Build status][travis_image]][travis_status]
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmraxilus%2Fswiss.sh.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmraxilus%2Fswiss.sh?ref=badge_shield)
 
 _Creating a pocket sized toolkit library for any situation._
 
@@ -59,3 +60,7 @@ This project is licensed under [CC BY-NC-SA 4.0][license].
 [travis_status]: https://travis-ci.org/mraxilus/swiss.sh
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 [version_badge]: https://badge.fury.io/gh/mraxilus%2Fswiss.sh.svg 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmraxilus%2Fswiss.sh.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmraxilus%2Fswiss.sh?ref=badge_large)
